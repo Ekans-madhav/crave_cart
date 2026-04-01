@@ -1,0 +1,39 @@
+{
+  "name": "premium-food-app",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@react-oauth/google": "^0.13.4",
+    "axios": "^1.13.6",
+    "caniuse-lite": "^1.0.30001781",
+    "esbuild": "^0.27.4",
+    "framer-motion": "^12.34.4",
+    "lucide-react": "^0.563.0",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "react-router-dom": "^6.20.0",
+    "recharts": "^3.8.1",
+    "tailwind": "^4.0.0"
+  },
+  "overrides": {
+    "react": "18.3.1",
+    "react-dom": "18.3.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.1.18",
+    "@types/react": "^18.2.43",
+    "@types/react-dom": "^18.2.17",
+    "@vitejs/plugin-react": "^4.2.1",
+    "autoprefixer": "^10.4.27",
+    "postcss": "^8.5.8",
+    "tailwindcss": "^3.4.19",
+    "vite": "^5.0.8"
+  },
+  "proxy": "http://127.0.0.1:8000"
+}
