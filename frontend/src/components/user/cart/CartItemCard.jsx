@@ -1,6 +1,7 @@
 import React from 'react';
 import { Trash2, Minus, Plus } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { getImageUrl } from '../../../services/api';
 
 const CartItemCard = React.forwardRef(({ item, index, onRemove, onUpdateQuantity }, ref) => {
   return (
@@ -16,7 +17,7 @@ const CartItemCard = React.forwardRef(({ item, index, onRemove, onUpdateQuantity
       {/* Image */}
       <div className="w-full sm:w-28 h-28 shrink-0 rounded-xl overflow-hidden bg-gray-50 border border-gray-100">
         <img 
-          src={item.image ? (item.image.startsWith('http') ? item.image : `http://127.0.0.1:8000${item.image}`) : ""} 
+          src={getImageUrl(item.image)} 
           alt={item.name} 
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" 
         />

@@ -1,15 +1,13 @@
-import axios from "axios";
-
-const API_URL = "http://127.0.0.1:8000/api/contact/messages/";
+import API from "./api";
 
 export const sendContactMessage = async (data) => {
-    return await axios.post(API_URL, data);
+    return await API.post("/api/contact/messages/", data);
 };
 
 export const getContactMessages = async () => {
-    return await axios.get(API_URL);
+    return await API.get("/api/contact/messages/");
 };
 
 export const deleteContactMessage = async (id) => {
-    return await axios.delete(`${API_URL}${id}/`);
+    return await API.delete(`/api/contact/messages/${id}/`);
 };

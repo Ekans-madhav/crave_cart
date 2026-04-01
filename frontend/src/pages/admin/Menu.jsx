@@ -3,6 +3,7 @@ import { Plus, Edit2, Trash2, Search, Filter, Image as ImageIcon, X } from "luci
 import { motion, AnimatePresence } from "framer-motion";
 import { getCategories, getMenuTypes } from "../../services/categoryService";
 import { getProducts, createProduct, updateProduct, deleteProduct } from "../../services/productService";
+import { getImageUrl } from "../../services/api";
 
 const Menu = () => {
     const [menuItems, setMenuItems] = useState([]);
@@ -182,7 +183,7 @@ const Menu = () => {
               >
                 <div className="relative h-48 bg-gray-100">
                   {item.image ? (
-                    <img src={item.image.startsWith('http') ? item.image : `http://127.0.0.1:8000${item.image}`} alt={item.name} className="w-full h-full object-cover" />
+                    <img src={getImageUrl(item.image)} alt={item.name} className="w-full h-full object-cover" />
                   ) : (
                     <div className="w-full h-full flex items-center justify-center">
                       <ImageIcon className="w-12 h-12 text-gray-300" />

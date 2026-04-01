@@ -6,6 +6,7 @@ import {
     getSortOptions, createSortOption, updateSortOption, deleteSortOption,
     getCategories, createCategory, updateCategory, deleteCategory 
 } from "../../services/categoryService";
+import { getImageUrl } from "../../services/api";
 
 const MenuTypes = () => {
     const [activeTab, setActiveTab] = useState("categories"); // "categories", "types", or "sort"
@@ -54,7 +55,7 @@ const MenuTypes = () => {
             setEditingItem(item);
             if (activeTab === "categories") {
                 setFormData({ name: item.name, image: null });
-                setImagePreview(item.image ? (item.image.startsWith('http') ? item.image : `http://127.0.0.1:8000${item.image}`) : "");
+                setImagePreview(getImageUrl(item.image));
             } else if (activeTab === "types") {
                 setFormData({ name: item.name });
             } else {
@@ -193,7 +194,7 @@ const MenuTypes = () => {
                                 {activeTab === "categories" ? (
                                     <div className="relative h-40 bg-gray-50">
                                         {item.image ? (
-                                            <img src={item.image.startsWith('http') ? item.image : `http://127.0.0.1:8000${item.image}`} alt={item.name} className="w-full h-full object-cover" />
+                                            <img src={getImageUrl(item.image)} alt={item.name} className="w-full h-full object-cover" />
                                         ) : (
                                             <div className="w-full h-full flex items-center justify-center">
                                                 <ImageIcon className="w-12 h-12 text-gray-300" />
